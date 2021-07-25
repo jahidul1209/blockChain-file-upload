@@ -14,6 +14,7 @@ contract Marketplace {
         string name;
         uint price;
         string imageHash;
+        string category;
          string description;
         address  owner;
         bool purchased;
@@ -24,6 +25,7 @@ contract Marketplace {
         string name,
         uint price,
         string imageHash,
+         string category,
         string description,
         address  owner,
         bool purchased
@@ -34,6 +36,7 @@ contract Marketplace {
         string name,
         uint price,
         string imageHash,
+         string category,
         string description,
         address  owner,
         bool purchased
@@ -44,7 +47,7 @@ contract Marketplace {
         owner = msg.sender;    
     }
 
-    function createProduct(string memory _name, string memory _imageHash, uint _price, string memory _description ) public {
+    function createProduct(string memory _name, string memory _imageHash, uint _price, string memory _category, string memory _description ) public {
         //  require(msg.sender == owner);
         // Require a valid name
         require(bytes(_name).length > 0);
@@ -55,9 +58,9 @@ contract Marketplace {
        //description upto 1000
          require(!(bytes(_description).length > 1000));
            // Create the product
-        products[productCount] = Product(productCount, _name, _price, _imageHash, _description, msg.sender, false);
+        products[productCount] = Product(productCount, _name, _price, _imageHash, _category, _description, msg.sender, false);
         // Trigger an event
-        emit ProductCreated(productCount, _name, _price , _imageHash, _description, msg.sender, false);
+        emit ProductCreated(productCount, _name, _price , _imageHash, _category , _description, msg.sender, false);
     }
 
     function purchaseProduct(uint _id) public payable {
@@ -83,6 +86,6 @@ contract Marketplace {
         payable(address(_seller)).transfer(msg.value);
         // address(_seller).transfer(msg.value);
         // Trigger an event
-        emit ProductPurchased(productCount, _product.name, _product.price, _product.imageHash, _product.description , msg.sender, true);
+        emit ProductPurchased(productCount, _product.name, _product.price, _product.imageHash, _product.category , _product.description , msg.sender, true);
     }
 }

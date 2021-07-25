@@ -2,3 +2,633 @@
 tbody#productList img {
     width: 250px;
 }
+
+/* menu /Header */
+a {
+    text-decoration: none;
+    color: rgb(53, 56, 64);
+}
+a:hover {
+    text-decoration: none;
+}
+a.nav-item {
+    color: rgb(0 0 0 / 77%);
+    font-weight: 500;
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 3.375rem;
+    line-height: 2.975rem;
+    text-align: center;
+    pointer-events: none;
+    color: #616161;
+    font-size: 20px;
+}
+.form-group.has-search {
+    margin-bottom: 0px!important;
+    width: 350px;
+    margin-right: 40px;
+}
+input.form-control {
+    padding: 21px;
+}
+.navbar-brand span {
+    color: black;
+    font-size: 28px;
+    font-family: monospace;
+    padding-left: 12px;
+    font-weight: 800;
+}
+.iconsize {
+    font-size: 25px;
+}
+span.nav-item {
+    color: rgb(14 14 14 / 85%);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    padding: 29px 3px;
+}
+.nav-item-icon {
+    padding: 25px 7px;
+    color: rgb(14 14 14 / 85%);
+}
+span.nav-item:hover{
+    border-bottom: 2px solid #7617c2;
+}
+.dropdown-menu.show {
+    display: block;
+    margin-top: 16px;
+    padding: 0px;
+}
+.dropdown-menu.show .nav-link {
+    width: 225px;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 15px 25px;
+}
+.dropdown-menu.show .nav-link:hover{
+    background: #fcfcfc;
+    border-bottom: 1px solid #7617c2;
+    transition: 0.1s;
+}
+a.nav-itemS {
+    color: rgb(14 14 14 / 85%);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    padding: 25px 3px;
+    padding: 25px 3px;
+}
+a.nav-itemS:hover{
+    border-bottom: 2px solid #7617c2;
+}
+.bg-light {
+    background-color: #fcfcfc !important;
+    box-shadow: 0px 0px 8px 0px #939393;
+}
+
+span.menu-button {
+    border:1px solid #791ac5;
+    border-radius: 25px;
+    padding: 10px 25px;
+    color: white;
+    background: #791ac5;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .5px;
+}
+span.menu-button:hover {
+    background: #7315bf;
+}
+.nav-wallet img {
+    width: 38px;
+}
+.nav-wallet {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-wallet .text {
+    position: absolute;
+    visibility: hidden;
+    top: 60px;
+    right: 30px;
+}
+.nav-wallet:hover .text {
+    visibility: visible;
+}
+.NavDropdownPro .dropdown-menu.show {
+    margin-left: -170px;
+}
+textarea {
+    overflow: overlay;
+    resize: vertical;
+    color: white;
+    border: white;
+}
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 425px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+         -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: 93px;
+}
+.modal.left .modal-body,
+.modal.right .modal-body {
+    padding: 15px 15px 80px;
+}
+  
+/*Right*/
+.modal.right.fade .modal-dialog {
+    right: 0px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+       -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+         -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+    right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-header {
+    border-bottom-color: #EEEEEE;
+    background-color: #FAFAFA;
+}
+.accunt {
+    font-size: 18px;
+    font-weight: 500;
+}
+/* Section home Header */
+.createBtn {
+    background: #791ac5;
+    border: 1px solid #791ac5;
+    padding: 8px 42px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.createBtn:hover {
+    background: #630db3;
+    border: 1px solid #630db3;
+    padding: 8px 42px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.createBtn2 {
+    background: transparent;
+    border: 1px solid #791ac5;
+    padding: 8px 42px;
+    color: #791ac5;
+    font-size: 20px;
+    font-weight: 600;
+}
+.createBtn2:hover {
+    background: #630db3;
+    border: 1px solid #630db3;
+    padding: 8px 42px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.homeText {
+    padding-top: 60px;
+}
+.home-Head h1 {
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 1.3;
+    font-family: inherit;
+}
+.home-Head p {
+    font-size: 22px;
+    font-weight: 300;
+    padding-top: 12px;
+    padding-bottom: 20px;
+}
+.nft-home-card img {
+    width: 100%;
+    max-height: 385px;
+}
+
+.homeCard {
+    background: white;
+    border: 1px solid #d8d8d8;
+    box-shadow: 0px 0px 5px 1px #b5b5b5;
+    cursor: pointer;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+.homeCard:hover {
+    transition: 0.25s;
+    box-shadow: 0px 0px 8px 5px #b5b5b5;
+}
+.nft-cat-na {
+    padding: 15px 20px;
+    line-height: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.iamgeCircle img {
+    width: 46px;
+    border-radius: 50%;
+    height: 46px;
+    margin-right: 15px;
+}
+button.copyBtn {
+    border: none;
+    margin-left: 15px;
+}
+/* category wise Card */
+.nft-card-cat img {
+    width: 100%;
+    height: 300px;
+}
+.nft-card-cat {
+    border: 1px solid #b9b9b9;
+    box-shadow: 0px 0px 3px 0px #b9b9b9;
+    border-radius: 5px;
+    padding: 10px;
+}
+.nft-card-cat .iamgeCircle img {
+    width: 50px;
+    height: 50px;
+}
+/* Upload Image css */
+#upload {
+    opacity: 0;
+}
+
+#upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.image-area {
+    border: 2px dashed rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    position: relative;
+}
+
+.image-area::before {
+    content: 'Uploaded image result';
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.image-area img {
+    z-index: 2;
+    position: relative;
+    width: 280px;
+}
+
+.CollectionForm--label {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: none;
+}
+.mt-5.mb-3.CreteClton h1 {
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-right: 32px;
+    margin-bottom: 6px;
+}
+
+.mt-5.mb-3.CreteClton {
+    text-align: center;
+}
+
+/* MarketPlace Page/All nft  */
+.mainCard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.nft-card {
+    width: 31%;
+    display: inline-block;
+    border: 1px solid #f9f9f9;
+    padding: 10px;
+    margin: 12px;
+    background: #f9f9f9;
+    box-shadow: 0px 0px 5px 2px #eaeaea;  
+    border-radius: 5px;
+}
+.nft-card:hover {
+
+    box-shadow:   0px 0px 5px 5px #eaeaea;
+  
+}
+.homeCard:hover {
+    transition: 0.25s;
+    box-shadow: 0px 0px 10px 8px #b5b5b5
+}
+.nft-card img {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #dedede4d;
+    border-radius: 5px;
+}
+.nft-card-value {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px 0px;
+}
+.cat-value {
+    font-weight: 500;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+.nft-cat-name {
+    text-align: left;
+}
+
+.nft-price {
+    text-align: right;
+}
+
+/* Create and sell nfts */
+.card-img-top {
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+.card {
+    text-align: center;
+    padding: 30px 0px 0px;
+    border: none;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+/* Support */
+.my{
+    color: #600bb0;
+    text-align: center;
+    font-weight: bold;
+  }
+.search{
+  width: 30%;
+  background-color: #ffff;
+  height: 40px;
+  float: right;
+  border-radius: 5pt;
+  border: 0.5px solid #600bb0;
+}
+.search img{
+  padding-left: 10px;
+}
+.search input{
+  direction: none;
+  border: none;
+  padding-top: 5px;
+}
+
+.info {
+    border: 0.5px solid #600bb0;
+    border-radius: 5pt;
+    margin: 15px 0px;
+    padding: 20px 10px;
+    width: 100%;
+    height: 150px;
+}
+.infos{
+color: #000;
+text-align: center;
+font-weight: bold;
+}
+
+.details{
+  text-align: center;
+  color: #777777;
+}
+.detailss
+{
+    color: #777777;
+}
+.pro{
+  color: #000;
+font-weight: bold;
+}
+/* react-multi-carousel-list   */
+.carsl-image {
+    height: 200px;
+    overflow: hidden;
+}
+.nft-cat-car .iamgeCircle {
+    margin-top: -36px;
+}
+
+.nft-cat-car .iamgeCircle img {width: 60px;height: 60px;}
+.home-carousel .nft-home-card {
+    border: 1px solid #e2e2e2;
+    margin: 0px 8px;
+    text-align: center;
+    padding: 0px 0px 25px 0px;
+} 
+.home-carousel .nft-home-card:hover {
+     box-shadow: 0px 0px 3px 0px #7b7b7b;
+}
+
+.nft-cat-car .iamgeCircle img {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+}
+/* 
+Partners Page */
+
+ul.article-list li {
+    list-style-type: none;
+    padding: 20px 0px;
+    border-bottom: 1px solid #e6e6e6;
+}
+/* SideBar for profile */
+#sidebar {
+    position: absolute;
+    width: 230px;
+    height: 75vh;
+}
+  #sidebar .closemenu {
+    color: #000;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    line-height: 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 22px;
+    top: 55px;
+    cursor: pointer;
+  }
+  #sidebar .pro-sidebar {
+    width: 100%;
+    min-width: 100%;
+  }
+  #sidebar .pro-sidebar.collapsed {
+    width: 80px;
+    min-width: 80px;
+  }
+  #sidebar .pro-sidebar-inner {
+    background-color: white;
+    box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout {
+    overflow-y: hidden;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+    font-size: 20px;
+    padding: 0 20px;
+    color: #000;
+    font-weight: bold;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul {
+    padding: 0 5px;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+    color: #000;
+    margin: 10px 0px;
+    font-weight: bold;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper .pro-item-content {
+    color: #000;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
+    background-color: #c145ff87;
+    color: #000;
+    border-radius: 3px;
+}
+  #sidebar .logo {
+    padding: 20px;
+  }
+  .pro-sidebar .pro-menu a {
+    text-decoration: none;
+    color: #060606!important;
+}
+.pro-sidebar .pro-menu:hover a{
+    text-decoration: none;
+    color: #660eb4;
+}
+  @media only screen and (max-width: 720px) {
+    html {
+      overflow: hidden;
+    }
+  }
+
+/* Collection Page */
+.nft-card-collection {width: 100%;}
+.collectionCard.mt-5 {
+    display: flex;
+}
+.nft-card-collection {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.nft-card-collection .carsl-image {
+    height: 180px;
+    overflow: hidden;
+}
+.no-items {
+    padding: 60px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+/* Asset page */
+.asset-card img {
+    width: 100%;
+}
+.asset-card {
+    border: 1px solid #e6e6e6;
+    box-shadow: 0px 0px 5px 2px #e6e6e6;
+    padding: 15px;
+}
+.ass-value {
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+/* Footer Section */
+#footer {
+    background: #680fb6;
+    padding: 70px 0px;
+}
+.footern {
+    color: #ffffff;
+}
+
+  .pic{
+    padding-right: 20px;
+  }
+
+  .ftd{
+    color: #d3d3d3;
+  }
+  .footericon {
+    font-size: 45px;
+    color: white;
+    margin-right: 10px;
+}
+.fot {
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+#Copyright {
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    background: #5f0aaf;
+}
+  #Copyright h6 {
+    padding-top: 18px; }
+
+
+
+

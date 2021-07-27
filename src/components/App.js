@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
-// import ipfs from './ipfs'
 import './App.css';
 import Marketplace from '../abis/Marketplace.json'
 import Header from './Header'
@@ -25,7 +24,6 @@ import Support from './pages/Support';
 import Partners from './pages/resources/Partners';
 import AccountSetting from './pages/settings/AccountSetting';
 import Profile from './pages/settings/Profile';
-import Sidebar from './pages/settings/Sidebar';
 import Collections from './pages/settings/Collections';
 import Assets from './pages/Assets';
 
@@ -49,7 +47,9 @@ class App extends Component {
       productUtility:[],
       productColl:[],
       productTrading:[],
+      marketplace:'',
         imageHash: '',
+        profile:[],
        buffer: null,
       loading: true,
       contract: null,
@@ -85,6 +85,7 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
 
+
     await web3.eth.getBalance( accounts[0]).then(value => {
       this.setState (  { balance : web3.utils.fromWei(value, "ether")});
     });
@@ -96,6 +97,8 @@ class App extends Component {
       this.setState({ marketplace })
       const productCount = await marketplace.methods.productCount().call()
       this.setState({ productCount })
+       const profile = await marketplace.methods.profile(1).call()
+       this.setState({ profile})
       // Load products
       for (let i = productCount; i > 0 ; i--) {
         const product = await marketplace.methods.products(i).call()
@@ -157,19 +160,17 @@ class App extends Component {
     } else {
       window.alert('Marketplace contract not deployed to detected network.')
     }
-
+  }
+  
+  purchaseProduct = (id, price) => {
+    this.setState({ loading: true })
+    this.state.marketplace.methods.purchaseProduct(id).send({ from: this.state.account, value: price })
+    .once('receipt', (receipt) => {
+      this.setState({ loading: false })
+    })
   }
 
-  // purchaseProduct(id, price) {
-  //   this.setState({ loading: true })
-  //   this.state.marketplace.methods.purchaseProduct(id).send({ from: this.state.account, value: price })
-  //   .once('receipt', (receipt) => {
-  //     this.setState({ loading: false })
-  //   })
-  //  }
-
   render() {
-    console.log(this.state.product.category)
     return (
     
       <div >
@@ -224,16 +225,17 @@ class App extends Component {
                      <Partners/>
                   </Route>
                   <Route  path="/eternity/account-settings"> 
-                    <AccountSetting/> 
+                    <AccountSetting account={this.state.account} marketplace ={this.state.marketplace}  /> 
                   </Route>
                   <Route  path="/eternity/profile">      
-                     <Profile/>
+                     <Profile account={this.state.account}/>
                   </Route>
                   <Route  path="/eternity/collections">      
                      <Collections account={this.state.account} products={this.state.products} />
                   </Route>
                   <Route  path="/eternity/assets/:id">      
-                     <Assets products={this.state.products}/>
+                     <Assets products={this.state.products}
+                           purchaseProduct={this.purchaseProduct}/>
                   </Route>
                 </Switch>
                 <Footer/>

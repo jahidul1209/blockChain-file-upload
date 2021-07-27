@@ -29,10 +29,10 @@ class Collections extends Component {
                     <div className = 'col-md-3'>
                         <Sidebar/>
                     </div>
-                    <div className = 'col-md-8 tttt'>
-                      <div className = 'mt-5 mb-3 CreteClton'>  
+                    <div className = 'col-md-8 py-4'>
+                    <div className = 'mt-4 mb-4 CreteClton'>  
                          <h1  >My Collections</h1> 
-                        <p className = 'pt-3 pb-4'>Create, curate, and manage collections of unique NFTs to share and sell.</p>
+                        <p className = 'pt-2 pb-3'>Create, curate, and manage collections of unique NFTs to share and sell.</p>
                         <Link to="/eternity/create"><Button className = "createBtn">Create a Collectios</Button></Link>
                       </div>
                        <hr></hr> 
@@ -44,9 +44,7 @@ class Collections extends Component {
                             { this.props.products.map((product) => { 
                                 return(
                                     <>
-                                    { product.owner === this.props.account ?
-
-                                   
+                                    { product.owner === this.props.account ? 
                                     <div className = 'nft-card-collection'>
                                     <Nav.Link >  
                                     <Link to="#">

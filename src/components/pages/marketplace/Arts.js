@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Nav } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 
@@ -31,7 +30,6 @@ class Arts extends Component {
                       <p>Arts NFTs are changing the way fans connect with their favorite artists. From 3LAU to Imogen Heap, all kinds of creators are innovating on the blockchain, and the appetite for change in an industry that so often underserves independent makers is clear.</p>
              </div>
           <div className="row  text-center'">
-            <main role="main" className="col-lg-12 d-flex">
               { this.state.loading 
                 ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
                  :
@@ -64,7 +62,6 @@ class Arts extends Component {
                   })}
                </div>
                } 
-            </main>
           </div>
         </div>
             </div>

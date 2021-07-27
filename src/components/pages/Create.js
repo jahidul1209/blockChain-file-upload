@@ -130,7 +130,7 @@ class Create extends Component {
                           <label class="CollectionForm--label" for="price">Price of NFT*</label> 
                           <input
                               id="productPrice"
-                              type="number"
+                              type="text"
                               for="price"
                               ref={(input) => { this.productPrice = input }}
                               className="form-control"

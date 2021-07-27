@@ -1,8 +1,5 @@
-// require('babel-register');
-// require('babel-polyfill');
 require('dotenv').config();
  const HDWalletProvider = require('truffle-hdwallet-provider');
-//var HDWalletProvider = require("@truffle/hdwallet-provider");
 var mnemonic = process.env["NEMONIC"];
 var tokenKey = process.env["INFURA_API_KEY"];
 

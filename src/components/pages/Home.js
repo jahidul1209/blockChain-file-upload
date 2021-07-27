@@ -11,7 +11,7 @@ var backGroundImage = {
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  backgroundImage: `linear-gradient(0deg, rgb(255 255 255), rgb(255 255 255 / 67%)), url(${process.env.PUBLIC_URL +  '../eternity/image/backgroundimg.jpg'})`
+  backgroundImage: `linear-gradient(0deg, rgb(255 255 255), rgb(255 255 255 / 67%)), url(${process.env.PUBLIC_URL +  '../eternity-2/image/backgroundimg.jpg'})`
 };
 const responsive = {
   superLargeDesktop: {
@@ -124,7 +124,6 @@ render() {
                           </div>
                           
                             <div className="row  text-center pt-3">
-                              <main role="main" className="col-lg-12 d-flex">
                                 { this.state.loading 
                                   ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
                                   : 
@@ -151,7 +150,6 @@ render() {
                                })} 
                              </div>
                                   } 
-                              </main>
                             </div>
                           </div>
 

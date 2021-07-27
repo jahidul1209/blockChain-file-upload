@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Nav} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 //import react pro sidebar components
 import {
@@ -7,13 +6,12 @@ import {
   Menu,
   MenuItem,
   SidebarHeader,
-  SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
 
 //import icons from react icons
 import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+import { FiHome, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import { RiPencilLine } from "react-icons/ri";
 import { BiCog } from "react-icons/bi";
 

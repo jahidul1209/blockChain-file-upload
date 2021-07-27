@@ -1,71 +1,98 @@
-import React,{useState} from 'react'
-import Button from 'react-bootstrap/Button'
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import Sidebar from './Sidebar'
+const Axios = require('axios');
 
+class AccountSetting extends Component {
 
-const AccountSetting = ()=> { 
-     const [ProfileName, setProfileName] = useState('')
-     const [ProfileEmail, setProfileEmail] = useState('')
-     const [ProfileDes, setProfileDes] = useState('')
-    
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(ProfileName)
-        console.log(ProfileEmail)
-        console.log(ProfileDes)
-    }
+    constructor(props) {
+        super(props)
+        this.state = {
+          loading: true,
+        }
+      }
 
-  
-    // console.log(fetchedData)
-    return (
-        <div >
-          <div className = 'row'>
+        profileSetting = (account, username, email, biography) => {
+          Axios.post("http://localhost:3001/users/insert", {
+             account : account,
+             username : username,
+             email : email,
+            biography : biography,
+            })
+            .then(() =>{
+               alert("SuccessFully Inserted")
+              
+            })
+            .catch(error => {
+                console.log(error.response)
+            });
+        }
+
+    render() {
+        return (
+            <div className = 'accountSetting'>
+              <div className = 'row'>
               <div className = 'col-md-3'>
                         <Sidebar/>
-              </div>
+               </div>
+               <div className="col-md-7 py-4">
+               <div className = 'mt-4 mb-4 CreteClton'>  <h1>Profile Settings</h1> </div>
+                       <hr></hr>     
+                 <form onSubmit={(event) => {
+                      event.preventDefault()
+                        const username = this.username.value
+                        const email = this.email.value
+                        const biography = this.biography.value
+                        const account =  this.props.account
+                        //data send to solidity
+                      this.profileSetting(account, username, email, biography)
+                      }}>
+            
 
-            <div className="col-md-7 py-4">
-                 <div className = 'mt-5 mb-3 CreteClton'>  <h1>Edit Profile</h1> </div>
-              <hr></hr>
-            <form onSubmit={handleSubmit}>
-                      <div className="form-group mr-sm-2 mb-4">
-                            <label class="CollectionForm--label" for="name">Name*</label>
+                       <div className="form-group mr-sm-2 mb-4 pt-5">
+                            <label class="CollectionForm--label" for="name">Username*</label>
                             <input
+                               id="username"
                                type="text"
                                for="name"
-                               onChange={(e) => setProfileName(e.target.value)}
+                               ref={(input) => { this.username = input }}
                                className="form-control"
-                               placeholder="Name*"
+                               placeholder="User Name"
                                required />
                          </div>
-                         <div className="form-group mr-sm-2 mb-4">
-                            <label class="CollectionForm--label" for="email">Email</label>
-                            <input
-                               type="email"
-                               for="email"
-                               onChange={(e) => setProfileEmail(e.target.value)}
-                               className="form-control"
-                               placeholder="Email*"
-                               required />
-                         </div>
-                         <div className="form-group mr-sm-2  mb-4">
-                            <label class="CollectionForm--label" for="description">Bio</label> 
+                          <div className="form-group mr-sm-2  mb-4">
+                          <label class="CollectionForm--label" for="email">Email</label> 
+                          <input
+                              id="email"
+                              type="email"
+                              for="email"
+                              ref={(input) => { this.email = input }}
+                              className="form-control"
+                              placeholder="Email"
+                              required />
+                          </div>
+                            <div className="form-group mr-sm-2  mb-4">
+                            <label class="CollectionForm--label" for="biography">Biography</label> 
+                            <p>Here 0 of 1000 characters used</p>
                               <textarea
+                                  id="biography"
                                   type="textarea"
-                                  for="description"
+                                  for="biography"
                                   rows="5"
-                                  onChange={(e) => setProfileDes(e.target.value)}
+                                  ref={(input) => { this.biography = input }}
                                   className="form-control"
-                                  placeholder="Bio"
+                                  placeholder="Biography"
                                   required />
                               </div>
-                <Button variant="primary" type="submit">
-                        Submit
-                </Button>
+                              <Button  type = 'submit'  className = "createBtn"> Submit </Button>
+                
                 </form>
+                </div>
+              </div>            
             </div>
-            </div>       
-        </div>
-    )
+        );
+    }
 }
-export default AccountSetting
+
+export default AccountSetting;
+

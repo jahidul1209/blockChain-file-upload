@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Navbar,Nav,NavDropdown ,Button} from 'react-bootstrap';
 import { Link } from "react-router-dom";
+const Axios = require('axios');
+
 
 
 // import Modal from 'react-bootstrap/Modal'
@@ -15,8 +17,30 @@ class Header extends Component {
       show:false,
       showMarket:false,
       showRes:false,
+      username :[],
     }
   }
+
+  componentDidMount() {
+      Axios.get("http://localhost:3001/users/get")
+       
+        .then((response) => {
+          this.setState({username : response.data});
+          }
+        )
+        .catch(()=> { 
+          console.log('Swallowed!') 
+        });
+    // Axios.get("http://localhost:3001/users/get").then((response) => {
+    //   for(var i = 0; i < response.data.length; i++){
+    //           if(this.props.account === response.data[i].Account ){
+    //               this.setState({username : response.data[i].UserName});
+    //           }
+    //   }
+    // });
+  }
+
+
    logout = () => {
     // localStorage.removeItem("accessToken");
     window.location.href = '/home';
@@ -46,7 +70,17 @@ class Header extends Component {
     el.select()
     document.execCommand("copy")
   }
+  copyCodeToClipboard2 = () => {
+    const el = this.textArea2
+    el.select()
+    document.execCommand("copy")
+  }
+  depositForm = () =>{
+    document.querySelector('.modal-for-deposit').style.display = 'block';
+    document.querySelector('#deposit2').style.display = 'none';
+  }
   render() {
+    console.log(this.state.username)
     return (
       <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky="top">
@@ -153,7 +187,7 @@ class Header extends Component {
  </Navbar>
 
 {/* 
-<!-- Modal --> */}
+<!-- Modal fow wallet  --> */}
 	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -164,30 +198,96 @@ class Header extends Component {
 				</div>
 
 				<div class="modal-body">
-          <div className = 'walletAdd'>
-              <p> <span className = 'accunt'>Account No :</span> {this.props.account.slice(0, 6)}...{this.props.account.slice(-4) }
-              <textarea 
-                  ref={(textarea) => this.textArea = textarea}
-                  style = {{display:'none'}}
-                  value={this.props.account}
-                />
-              <button onClick={() => this.copyCodeToClipboard()} className = 'copyBtn'>
-                        <i class="far fa-copy"></i>
-              </button>
-              </p>
+            <div className= 'row'>
+              <div className = 'col-md-5'>
+                  {this.state.username.map((user) => { 
+                    return(
+                      <>
+                      {this.props.account === user.Account ?
+                        <h4  className = 'accuntname'>{user.UserName}</h4>
+                        : null }
+                        </>
+                        )  
+                      })}
+                 
+              </div>
+              <div className = 'col-md-2'></div>
+              <div className = 'col-md-5'> 
+              <div className = 'walletAdd'>                       
+                    <p> <span className = 'accunt'>{this.props.account.slice(0, 6)}...{this.props.account.slice(-4) }</span>  </p>
+                    <textarea 
+                        ref={(textarea) => this.textArea = textarea}
+                        style = {{display:'block'}}
+                        className = 'copytext'
+                        value={this.props.account}
+                      />
+                    <button onClick={() => this.copyCodeToClipboard()} className = 'copyBtn'>
+                              <i class="far fa-copy"></i>
+                    </button>
+              </div>
+            </div>
+           
+
+            
           </div>
           <hr></hr>
           <div className = 'walletbaln text-center'>
                 <p >Total balance</p> 
                 <h4>{ parseFloat(this.props.balance).toFixed(3)} ETH</h4>
           </div>
-          <Button className = "createBtn mt-4"  style = {{width:'100%'}}>Add Fund</Button>
+          <Button className = "createBtn mt-4"   data-toggle="modal" data-target="#addFundModel" style = {{width:'100%'}}>Add Funds</Button>
 
 				</div>
 
 			</div>
 		</div>
 	</div>
+
+  {/* model for Add fund of Wallet */}
+      <div class="modal fade" id="addFundModel" tabindex="-1" aria-labelledby="addFundModelLabel" aria-hidden="true">
+      <div class="modal-dialog" id = 'deposit2'>
+        <div class="modal-content">
+
+            <div class="modal-header">
+              <h4 class="modal-title text-center" >Add ETH to your wallet</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+          <div class="modal-body text-center pt-5 pb-5">
+           <p>Select one of the options to deposit ETH to your wallet</p>
+            <Button variant="outline-dark" onClick = {this.depositForm}>Deposit from an exchange</Button>
+          </div>
+        </div>
+      </div>
+    <div class="modal-for-deposit">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+
+              <div class="modal-header">
+                <h4 class="modal-title text-center" >Deposit ETH from your exchange</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+            <div class="modal-body text-center pt-5 pb-5">
+            <p>Deposit ETH from your exchangeinfo to the following address:</p>
+            <div className = 'walletfunds'>                       
+                    <textarea 
+                        ref={(textarea) => this.textArea2 = textarea}
+                        style = {{display:'block'}}
+                        className = 'copytext2'
+                        value={this.props.account}
+                      />
+                    <button onClick={() => this.copyCodeToClipboard2()} className = 'copyBtn'>
+                              <i class="far fa-copy"></i>
+                    </button>
+              </div>
+            <p className = 'pt-3'>Only send ETH or any other ERC-20 token to this address.</p>
+            </div>
+            <div class="modal-footer">
+                <Button variant="outline-dark"  data-dismiss="modal" aria-label="Close" >I've made my deposit</Button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </>
     );
   }

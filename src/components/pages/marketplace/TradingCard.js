@@ -42,7 +42,7 @@ class TradingCard extends Component {
                     { (product.category === 'tradingCard')  ?
                      <div className = 'nft-card'>
                        <Nav.Link >  
-                       <Link to="#">
+                       <Link to={`/eternity/assets/${product.id}`}>
                             <div className = 'text-right'># {product.id.toString()}</div>
                             <img  src={`https://ipfs.infura.io/ipfs/${product.imageHash}`} alt = "img" />
                           <div className = 'nft-card-value'>
